@@ -29,7 +29,8 @@ eth_eng_w.head()
 
 def multilinechart(d1,d2,v1,v2,vnm):
     matplotlib.pyplot.figure(figsize=(10,5))
-    matplotlib.pyplot.title("Distribution by {} in England and Wales".format(vnm),fontsize=20,color="m")
+    matplotlib.pyplot.title("Distribution by {} in England and Wales".
+                            format(vnm),fontsize=20,color="m")
     matplotlib.pyplot.plot(d1[vnm].unique(),v1,"--*g",label="Male")
     matplotlib.pyplot.plot(d2[vnm].unique(),v2,"--Db",label="Female")
     matplotlib.pyplot.xlabel("{}".format(vnm),fontsize=16,color="m")
@@ -66,7 +67,8 @@ def pieplot(fet,cnt,vnm,clr):
     if "_" in vnm:
         vnm=' '.join(vnm.split("_"))
     matplotlib.pyplot.figure(figsize=(10,5))
-    matplotlib.pyplot.title("Distribution by {} By Types of Survey".format(vnm),fontsize=18,color="m")
+    matplotlib.pyplot.title("Distribution by {} By Types of Survey".
+                            format(vnm),fontsize=18,color="m")
     matplotlib.pyplot.pie(cnt,labels=fet,autopct='%1.1f%%',colors=clr)
     matplotlib.pyplot.grid()
     matplotlib.pyplot.show()
@@ -113,7 +115,8 @@ def stkbar(f1,f2,f3,c1,c2):
 # In[20]:
 
 
-ctdf=pandas.crosstab(eth_eng_w.Ethnicity,eth_eng_w.Gender,values=eth_eng_w.Value, aggfunc=numpy.sum)
+ctdf=pandas.crosstab(eth_eng_w.Ethnicity,eth_eng_w.Gender,
+                     values=eth_eng_w.Value, aggfunc=numpy.sum)
 indtodrop=["All Ethnic groups","Asian","Black","Mixed","Other","White"]
 ctdf=ctdf.drop(index=indtodrop)
 ctdfraw=ctdf.index
